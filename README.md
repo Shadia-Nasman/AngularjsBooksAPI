@@ -3,8 +3,7 @@
 <ul>
   <li>Angularjs</li>
   <li>Bootstrap</li>
-  <li> HTML</li>
-  <li>CSS</li> 
+
   </ul>
   
   # Link of the API: <br>
