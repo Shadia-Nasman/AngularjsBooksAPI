@@ -1,0 +1,92 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div ng-app="books">
+
+        <!-- ////////////////////////BootStrap NavBar/////////////////// -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">MyBook</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Books <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown
+                  </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                <input type="text" ng-model="booksearch" placeholder="search...">
+
+                <!-- <p>{{booksearch}}</p> -->
+            </div>
+        </nav>
+        <!-- ////////////////////////BootStrap NavBar/////////////////// -->
+        <div>
+            <p ng-bind="booksearch" style="font-size: larger; font-weight: bolder;"></p>
+        </div>
+
+        <div ng-controller="bookcontroller" class="d-flex flex-wrap"><br>
+
+
+
+            <!-- ////////Fetch Data From API///////////// -->
+
+            <div ng-repeat="book in books" class="border rounded-lg mx-auto">
+
+                <div class="card" style="width: 18rem;">
+                    <img src="{{book.list_image}}" class="card-img-top" alt="..." style="width: 100 px; height: 200;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{book.books[0].title}}</h5>
+                        <p class="card-text">{{book.books[0].author}}}</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+
+                        <li class="list-group-item"> Contributer: {{book.books[0].contributor}}</li>
+                        <li class="list-group-item"> Publisher: {{book.books[0].publisher}}</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="{{book.books[0].amazon_product_url}}}" class="card-link">amazonlink</a>
+                        <a href="{{book.books[0].book_uri}}" class="card-link">booklink</a>
+                    </div>
+                </div>
+            </div>
+            <!-- /////////////////// -->
+
+
+        </div>
+
+    </div>
+
+
+    <script src="controller.js"></script>
+
+</body>
+
+</html>
